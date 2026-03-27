@@ -1,0 +1,1726 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Manual de uso de KiCad para el equipo de JW Control">
+      
+      
+        <meta name="author" content="Kenyi Reyes - JW Control">
+      
+      
+      
+        <link rel="prev" href="../pads/">
+      
+      
+        <link rel="next" href="../AgregarFootprints/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Pistas (Tracks) - Manual KiCad — JW Control</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pistas-tracks" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Manual KiCad — JW Control" class="md-header__button md-logo" aria-label="Manual KiCad — JW Control" data-md-component="logo">
+      
+  <img src="../../assets/JW_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Manual KiCad — JW Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pistas (Tracks)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../instalacion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Instalación
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../esquematico/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Esquemático
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PCB Editor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../importar_librerias/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Importar Librerías
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../extensiones/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Extensiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Manual KiCad — JW Control" class="md-nav__button md-logo" aria-label="Manual KiCad — JW Control" data-md-component="logo">
+      
+  <img src="../../assets/JW_logo.svg" alt="logo">
+
+    </a>
+    Manual KiCad — JW Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../esquematico/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esquemático
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Esquemático
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esquematico/Compomentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Componentes y Símbolos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esquematico/AgregarCompomentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agregar Componentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esquematico/wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conexiones (Wiring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCB Editor
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PCB Editor
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pistas (Tracks)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pistas (Tracks)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#herramienta-de-enrutado-interactivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramienta de enrutado interactivo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramienta de enrutado interactivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activar-el-enrutador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activar el enrutador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-enrutado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proceso de enrutado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ancho-de-pista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ancho de pista
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ancho de pista">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anchos-minimos-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anchos mínimos recomendados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambiar-el-ancho-durante-el-enrutado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambiar el ancho durante el enrutado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-anchos-predefinidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar anchos predefinidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reglas-de-diseno-design-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas de diseño (Design Rules)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modo-de-enrutado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modo de enrutado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modo de enrutado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-esquina-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modos de esquina disponibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrutado-diferencial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enrutado diferencial
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ratsnest-guias-de-conexion-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ratsnest (Guías de conexión pendiente)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zonas-de-cobre-copper-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zonas de cobre (Copper Zones)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zonas de cobre (Copper Zones)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-zona-de-gnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear una zona de GND
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drc-design-rule-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRC — Design Rule Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atajos-de-teclado-en-pcb-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de teclado en PCB (resumen)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AgregarFootprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agregar footprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importar_librerias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Importar Librerías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../extensiones/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extensiones
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Extensiones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensiones/InteractiveHtmlBom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive HTML BOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensiones/pcbway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCBway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#herramienta-de-enrutado-interactivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramienta de enrutado interactivo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Herramienta de enrutado interactivo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activar-el-enrutador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activar el enrutador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proceso-de-enrutado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proceso de enrutado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ancho-de-pista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ancho de pista
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ancho de pista">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anchos-minimos-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anchos mínimos recomendados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambiar-el-ancho-durante-el-enrutado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambiar el ancho durante el enrutado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-anchos-predefinidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar anchos predefinidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reglas-de-diseno-design-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas de diseño (Design Rules)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modo-de-enrutado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modo de enrutado
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modo de enrutado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modos-de-esquina-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modos de esquina disponibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrutado-diferencial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enrutado diferencial
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ratsnest-guias-de-conexion-pendiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ratsnest (Guías de conexión pendiente)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zonas-de-cobre-copper-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zonas de cobre (Copper Zones)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zonas de cobre (Copper Zones)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-zona-de-gnd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear una zona de GND
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drc-design-rule-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRC — Design Rule Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atajos-de-teclado-en-pcb-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de teclado en PCB (resumen)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pistas-tracks">Pistas (Tracks)</h1>
+<p>Las <strong>pistas</strong> (<em>tracks</em>) son las líneas conductoras de cobre en el PCB que conectan los pads entre sí, formando las redes eléctricas definidas en el esquemático.</p>
+<hr />
+<h2 id="herramienta-de-enrutado-interactivo">Herramienta de enrutado interactivo</h2>
+<p>KiCad incluye un <strong>enrutador interactivo</strong> que:</p>
+<ul>
+<li>Evita automáticamente obstáculos (pads, otras pistas).</li>
+<li>Respeta las reglas de diseño (DRC en tiempo real).</li>
+<li>Ofrece modos de enrutado: recto, diagonal, con curvas.</li>
+</ul>
+<h3 id="activar-el-enrutador">Activar el enrutador</h3>
+<ul>
+<li>Presiona <code>X</code> para enrutado estándar (bends de 45°).</li>
+<li>O ve a <code>Route → Route Single Track</code>.</li>
+</ul>
+<h3 id="proceso-de-enrutado">Proceso de enrutado</h3>
+<ol>
+<li>Presiona <code>X</code>.</li>
+<li>Haz clic en el pad de origen.</li>
+<li>Mueve el cursor por la trayectoria deseada.</li>
+<li>Haz clic para fijar puntos intermedios.</li>
+<li>Haz clic en el pad de destino para completar la conexión.</li>
+<li>La guía (<em>ratsnest</em>) desaparece al completar la conexión.</li>
+</ol>
+<hr />
+<h2 id="ancho-de-pista">Ancho de pista</h2>
+<p>El ancho de pista es crítico para la capacidad de corriente y los requisitos del proceso de fabricación.</p>
+<h3 id="anchos-minimos-recomendados">Anchos mínimos recomendados</h3>
+<table>
+<thead>
+<tr>
+<th>Aplicación</th>
+<th>Ancho mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Señal lógica (SPI, I2C, GPIO)</td>
+<td>0.2 mm</td>
+</tr>
+<tr>
+<td>Señal de comunicación (USB, alta velocidad)</td>
+<td>0.15 mm</td>
+</tr>
+<tr>
+<td>Alimentación baja (&lt; 500 mA)</td>
+<td>0.4 mm</td>
+</tr>
+<tr>
+<td>Alimentación media (500 mA – 1 A)</td>
+<td>0.6 mm</td>
+</tr>
+<tr>
+<td>Alimentación alta (1 A – 3 A)</td>
+<td>1.0 mm</td>
+</tr>
+<tr>
+<td>Alimentación muy alta (&gt; 3 A)</td>
+<td>2.0 mm o más</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Calculadora de ancho de pista</p>
+<p>Usa <code>Tools → Net Inspector</code> y la calculadora integrada de KiCad (<code>Tools → Calculator Tools</code>) para calcular el ancho correcto según la corriente y la temperatura.</p>
+</div>
+<h3 id="cambiar-el-ancho-durante-el-enrutado">Cambiar el ancho durante el enrutado</h3>
+<ul>
+<li>Presiona <code>W</code> durante el enrutado para abrir el selector de ancho.</li>
+<li>O usa <code>+</code> / <code>-</code> para incrementar o decrementar el ancho según los perfiles predefinidos.</li>
+</ul>
+<h3 id="configurar-anchos-predefinidos">Configurar anchos predefinidos</h3>
+<p><code>File → Board Setup → Design Rules → Pre-defined Sizes</code></p>
+<p>Agrega los anchos que uses frecuentemente en JW Control, por ejemplo: <code>0.2</code>, <code>0.4</code>, <code>0.8</code>, <code>1.5</code>, <code>2.5</code> mm.</p>
+<hr />
+<h2 id="reglas-de-diseno-design-rules">Reglas de diseño (Design Rules)</h2>
+<p>Las reglas de diseño definen las restricciones físicas del PCB. Se configuran en:</p>
+<p><code>File → Board Setup → Design Rules → Constraints</code></p>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Descripción</th>
+<th>Valor típico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Minimum track width</strong></td>
+<td>Ancho mínimo de pista</td>
+<td>0.15 mm</td>
+</tr>
+<tr>
+<td><strong>Minimum clearance</strong></td>
+<td>Distancia mínima entre objetos conductores</td>
+<td>0.2 mm</td>
+</tr>
+<tr>
+<td><strong>Minimum via size</strong></td>
+<td>Diámetro mínimo de via</td>
+<td>0.4 mm</td>
+</tr>
+<tr>
+<td><strong>Minimum drill</strong></td>
+<td>Diámetro mínimo de taladro</td>
+<td>0.3 mm</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Fabricante</p>
+<p>Las reglas deben ajustarse según las capacidades del fabricante de PCBs. Para <strong>PCBway</strong> (proveedor habitual de JW Control), las reglas estándar son:
+- Pista mínima: <strong>0.1 mm</strong>
+- Clearance mínimo: <strong>0.1 mm</strong>
+- Via mínima: <strong>0.3 mm</strong> de taladro, <strong>0.6 mm</strong> de pad externo</p>
+</div>
+<hr />
+<h2 id="modo-de-enrutado">Modo de enrutado</h2>
+<h3 id="modos-de-esquina-disponibles">Modos de esquina disponibles</h3>
+<p>Durante el enrutado, presiona <code>/</code> para cambiar el modo de curvatura:</p>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>45°</strong></td>
+<td>Esquinas de 45 grados (estándar)</td>
+</tr>
+<tr>
+<td><strong>H/V</strong></td>
+<td>Solo horizontal y vertical</td>
+</tr>
+<tr>
+<td><strong>Curved</strong></td>
+<td>Curvas suaves (mejor para alta frecuencia)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enrutado-diferencial">Enrutado diferencial</h3>
+<p>Para señales diferenciales (USB, Ethernet, etc.): <code>Route → Route Differential Pair</code>.</p>
+<hr />
+<h2 id="ratsnest-guias-de-conexion-pendiente">Ratsnest (Guías de conexión pendiente)</h2>
+<p>El <strong>ratsnest</strong> son las líneas delgadas que indican conexiones del esquemático que aún no han sido enrutadas. Desaparecen al completar cada conexión.</p>
+<ul>
+<li>Para mostrar/ocultar el ratsnest: <code>View → Ratsnest</code>.</li>
+<li>El objetivo del enrutado es <strong>eliminar todas las líneas del ratsnest</strong>.</li>
+</ul>
+<hr />
+<h2 id="zonas-de-cobre-copper-zones">Zonas de cobre (Copper Zones)</h2>
+<p>Las zonas de cobre llenan un área del PCB con cobre conectado a una red (normalmente <code>GND</code> o <code>VCC</code>).</p>
+<h3 id="crear-una-zona-de-gnd">Crear una zona de GND</h3>
+<ol>
+<li>Presiona <code>Ctrl+Shift+Z</code> o ve a <code>Place → Zone</code>.</li>
+<li>Se abrirá el diálogo de propiedades de zona:</li>
+<li>Selecciona la capa (<code>F.Cu</code> o <code>B.Cu</code>).</li>
+<li>Selecciona la red (<code>GND</code> o la que corresponda).</li>
+<li>Configura clearance y mínimo de relleno.</li>
+<li>Dibuja el perímetro de la zona.</li>
+<li>Presiona <code>B</code> para rellenar todas las zonas (<em>Fill All Zones</em>).</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Plano de GND</p>
+<p>Es buena práctica en JW Control colocar un <strong>plano de GND en B.Cu</strong> (cara posterior). Esto reduce la impedancia de la alimentación, mejora el blindaje EMI y simplifica el enrutado de señales.</p>
+</div>
+<hr />
+<h2 id="drc-design-rule-check">DRC — Design Rule Check</h2>
+<p>Despues de enrutar, ejecuta el DRC para verificar que el diseño cumple todas las reglas:</p>
+<p><code>Inspect → Design Rules Checker</code></p>
+<p>Errores comunes y cómo resolverlos:</p>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Causa probable</th>
+<th>Solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clearance violation</td>
+<td>Dos pistas muy cerca</td>
+<td>Mover o redirigir una pista</td>
+</tr>
+<tr>
+<td>Unconnected items</td>
+<td>Conexiones sin enrutar</td>
+<td>Completar el ratsnest</td>
+</tr>
+<tr>
+<td>Courtyard overlap</td>
+<td>Footprints superpuestos</td>
+<td>Separar los componentes</td>
+</tr>
+<tr>
+<td>Short circuit</td>
+<td>Dos redes distintas conectadas</td>
+<td>Verificar y corregir el enrutado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="atajos-de-teclado-en-pcb-resumen">Atajos de teclado en PCB (resumen)</h2>
+<table>
+<thead>
+<tr>
+<th>Atajo</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>X</code></td>
+<td>Enrutar pista</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>Colocar via (durante enrutado)</td>
+</tr>
+<tr>
+<td><code>W</code></td>
+<td>Seleccionar ancho de pista (durante enrutado)</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Cambiar modo de esquina (durante enrutado)</td>
+</tr>
+<tr>
+<td><code>Esc</code></td>
+<td>Cancelar enrutado</td>
+</tr>
+<tr>
+<td><code>U</code></td>
+<td>Seleccionar pista conectada</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>Seleccionar pista completa</td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td>Rellenar todas las zonas de cobre</td>
+</tr>
+<tr>
+<td><code>Ctrl+B</code></td>
+<td>Borrar relleno de zonas</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Vista 3D</td>
+</tr>
+<tr>
+<td><code>F8</code></td>
+<td>Actualizar desde esquemático</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

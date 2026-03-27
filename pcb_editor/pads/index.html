@@ -1,0 +1,1527 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Manual de uso de KiCad para el equipo de JW Control">
+      
+      
+        <meta name="author" content="Kenyi Reyes - JW Control">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../Tracks/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Pads - Manual KiCad — JW Control</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pads" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Manual KiCad — JW Control" class="md-header__button md-logo" aria-label="Manual KiCad — JW Control" data-md-component="logo">
+      
+  <img src="../../assets/JW_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Manual KiCad — JW Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pads
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="cyan"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../instalacion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Instalación
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../esquematico/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Esquemático
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  PCB Editor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../importar_librerias/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Importar Librerías
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../extensiones/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Extensiones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Manual KiCad — JW Control" class="md-nav__button md-logo" aria-label="Manual KiCad — JW Control" data-md-component="logo">
+      
+  <img src="../../assets/JW_logo.svg" alt="logo">
+
+    </a>
+    Manual KiCad — JW Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../esquematico/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esquemático
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Esquemático
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esquematico/Compomentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Componentes y Símbolos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esquematico/AgregarCompomentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agregar Componentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esquematico/wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conexiones (Wiring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCB Editor
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PCB Editor
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pads
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-pads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de pads
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de pads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#through-hole-tht-orificio-pasante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Through-Hole (THT — Orificio pasante)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smd-surface-mount-montaje-superficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMD (Surface Mount — Montaje superficial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npth-non-plated-through-hole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NPTH (Non-Plated Through-Hole)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propiedades-de-un-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propiedades de un pad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taladros-drills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taladros (Drills)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taladros (Drills)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diametros-de-taladro-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diámetros de taladro recomendados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mascara-de-soldadura-solder-mask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Máscara de soldadura (Solder Mask)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasta-de-soldadura-solder-paste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pasta de soldadura (Solder Paste)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-un-pad-dentro-del-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editar un pad dentro del footprint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#via-perforacion-de-conexion-entre-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Via (Perforación de conexión entre capas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tracks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pistas (Tracks)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AgregarFootprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agregar footprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../importar_librerias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Importar Librerías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../extensiones/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extensiones
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Extensiones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensiones/InteractiveHtmlBom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive HTML BOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensiones/pcbway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PCBway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-pads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de pads
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de pads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#through-hole-tht-orificio-pasante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Through-Hole (THT — Orificio pasante)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smd-surface-mount-montaje-superficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SMD (Surface Mount — Montaje superficial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npth-non-plated-through-hole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NPTH (Non-Plated Through-Hole)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propiedades-de-un-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propiedades de un pad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taladros-drills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taladros (Drills)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Taladros (Drills)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diametros-de-taladro-recomendados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diámetros de taladro recomendados
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mascara-de-soldadura-solder-mask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Máscara de soldadura (Solder Mask)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasta-de-soldadura-solder-paste" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pasta de soldadura (Solder Paste)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-un-pad-dentro-del-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editar un pad dentro del footprint
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#via-perforacion-de-conexion-entre-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Via (Perforación de conexión entre capas)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pads">Pads</h1>
+<p>Los <strong>pads</strong> son los puntos de contacto metálicos en el PCB donde se sueldan los componentes. Son parte de los <strong>footprints</strong> y tienen propiedades que determinan cómo se fabrica y solda la placa.</p>
+<hr />
+<h2 id="tipos-de-pads">Tipos de pads</h2>
+<h3 id="through-hole-tht-orificio-pasante">Through-Hole (THT — Orificio pasante)</h3>
+<p>Son agujeros metálizados que atraviesan toda la placa. El componente inserta sus patillas en estos agujeros y se solda en la cara opuesta.</p>
+<ul>
+<li><strong>Uso típico:</strong> conectores, resistencias tradicionales, capacitores electrolíticos, componentes grandes.</li>
+<li><strong>Forma:</strong> circular, cuadrada, rectangular u ovalada.</li>
+<li><strong>Cobre en:</strong> ambas caras (<code>F.Cu</code> y <code>B.Cu</code>) y paredes del taladro.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  Vista en corte:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ┌─────┐
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  │ pad  │  F.Cu (superior)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ├──○──┤  ← Agujero metálizado
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  │ pad  │  B.Cu (inferior)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  └─────┘
+</code></pre></div>
+<h3 id="smd-surface-mount-montaje-superficial">SMD (Surface Mount — Montaje superficial)</h3>
+<p>Pads planos que solo existen en una cara del PCB. El componente se suelda directamente sobre la superficie.</p>
+<ul>
+<li><strong>Uso típico:</strong> resistencias, capacitores, CIs, relays y la mayoría de componentes modernos.</li>
+<li><strong>Forma:</strong> rectangular, ovalada (<em>rounded rectangle</em>).</li>
+<li><strong>Cobre en:</strong> solo la cara de montaje (<code>F.Cu</code> o <code>B.Cu</code>).</li>
+</ul>
+<h3 id="npth-non-plated-through-hole">NPTH (Non-Plated Through-Hole)</h3>
+<p>Agujeros que <strong>no tienen cobre</strong>. Se usan para tornillos de montaje (<em>mounting holes</em>) y posicionamiento mecánico.</p>
+<hr />
+<h2 id="propiedades-de-un-pad">Propiedades de un pad</h2>
+<p>Haz doble clic sobre un pad en el PCB Editor para ver sus propiedades:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Net</strong></td>
+<td>Red eléctrica asignada al pad</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>THT, SMD, NPTH</td>
+</tr>
+<tr>
+<td><strong>Shape</strong></td>
+<td>Forma del pad: Circle, Rectangle, Oval, Trapezoid, Roundrect</td>
+</tr>
+<tr>
+<td><strong>Size X / Y</strong></td>
+<td>Dimensiones del pad en mm</td>
+</tr>
+<tr>
+<td><strong>Drill Size</strong></td>
+<td>Diámetro del taladro (solo THT)</td>
+</tr>
+<tr>
+<td><strong>Layers</strong></td>
+<td>Capas en las que aparece el pad</td>
+</tr>
+<tr>
+<td><strong>Thermal Relief</strong></td>
+<td>Conexión termal a zona de cobre (para facilitar soldadura)</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>Número de pin del footprint</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="taladros-drills">Taladros (Drills)</h2>
+<p>Los taladros se especifican en los pads THT y NPTH. Consideraciones importantes:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Taladro circular</strong></td>
+<td>El más común, se especifica con un solo diámetro</td>
+</tr>
+<tr>
+<td><strong>Taladro ovalado</strong></td>
+<td>Para pines rectangulares o de conector</td>
+</tr>
+<tr>
+<td><strong>Taladros pasante (PTH)</strong></td>
+<td>Con cobre en las paredes</td>
+</tr>
+<tr>
+<td><strong>Taladros no pasantes (NPTH)</strong></td>
+<td>Sin cobre, solo mecánicos</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diametros-de-taladro-recomendados">Diámetros de taladro recomendados</h3>
+<table>
+<thead>
+<tr>
+<th>Uso</th>
+<th>Diámetro de taladro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Componente genérico (0.5mm pin)</td>
+<td>0.8 mm</td>
+</tr>
+<tr>
+<td>Conector pin header 2.54mm</td>
+<td>1.0 mm</td>
+</tr>
+<tr>
+<td>Conector de potencia (pin 1mm)</td>
+<td>1.3 mm</td>
+</tr>
+<tr>
+<td>Tornillo M2 (mounting hole)</td>
+<td>2.2 mm</td>
+</tr>
+<tr>
+<td>Tornillo M3 (mounting hole)</td>
+<td>3.2 mm</td>
+</tr>
+<tr>
+<td>Tornillo M4 (mounting hole)</td>
+<td>4.3 mm</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Regla general para taladros THT</p>
+<p>El diámetro del taladro debe ser aproximadamente <strong>0.2–0.3 mm mayor</strong> que el diámetro del pin del componente para facilitar la inserción y la soldadura.</p>
+</div>
+<hr />
+<h2 id="mascara-de-soldadura-solder-mask">Máscara de soldadura (Solder Mask)</h2>
+<p>La máscara de soldadura es la capa protectora de color (verde, azul, rojo, etc.) que cubre la placa. Los pads tienen una <strong>apertura en la máscara</strong> para quedar expuestos y poder soldarse.</p>
+<ul>
+<li><strong>Solder Mask Expansion:</strong> expansión de la apertura respecto al pad. Valor positivo = apertura mayor que el pad.</li>
+<li>Valor estándar: <code>0.05 mm</code> a <code>0.1 mm</code>.</li>
+</ul>
+<hr />
+<h2 id="pasta-de-soldadura-solder-paste">Pasta de soldadura (Solder Paste)</h2>
+<p>Para pads SMD, la pasta de soldadura se aplica mediante un stencil antes del proceso de refusión. KiCad genera una capa <code>F.Paste</code> con las aperturas correspondientes.</p>
+<ul>
+<li>Los pads THT <strong>no</strong> suelen tener capa de pasta.</li>
+<li>Para pads SMD bajo componentes de alta densidad, se puede reducir la cobertura de pasta (<code>Paste Mask Expansion</code> negativo).</li>
+</ul>
+<hr />
+<h2 id="editar-un-pad-dentro-del-footprint">Editar un pad dentro del footprint</h2>
+<div class="admonition warning">
+<p class="admonition-title">Editar footprints en el PCB</p>
+<p>Los cambios realizados a un pad <strong>dentro del PCB Editor</strong> son locales al proyecto y no se guardan en la librería de footprints. Para cambios permanentes, edita el footprint en el <strong>Footprint Editor</strong>.</p>
+</div>
+<p>Para modificar un pad:</p>
+<ol>
+<li>En el PCB Editor, haz doble clic sobre el footprint.</li>
+<li>Haz doble clic sobre el pad específico dentro del footprint.</li>
+<li>Modifica las propiedades según sea necesario.</li>
+<li>Haz clic en <strong>OK</strong>.</li>
+</ol>
+<hr />
+<h2 id="via-perforacion-de-conexion-entre-capas">Via (Perforación de conexión entre capas)</h2>
+<p>Las <strong>vias</strong> son similares a los pads THT pero sin componente: sirven para conectar una pista de una capa a otra.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Via through</strong></td>
+<td>Atraviesa toda la placa (F.Cu a B.Cu)</td>
+</tr>
+<tr>
+<td><strong>Blind via</strong></td>
+<td>Va de una cara superficial a una capa interna</td>
+</tr>
+<tr>
+<td><strong>Buried via</strong></td>
+<td>Va entre dos capas internas (no llega a ninguna superficie)</td>
+</tr>
+</tbody>
+</table>
+<p>Las blind y buried vias solo son posibles en PCBs multicapa y tienen costo adicional en fabricación.</p>
+<p>Para colocar una via durante el enrutado:
+- Presiona <code>V</code> mientras enrutas una pista para colocar una via y cambiar de capa.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
