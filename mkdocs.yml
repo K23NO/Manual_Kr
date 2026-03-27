@@ -1,0 +1,70 @@
+site_name: Manual KiCad — JW Control
+site_description: Manual de uso de KiCad para el equipo de JW Control
+site_author: Kenyi Reyes - JW Control
+
+theme:
+  name: material
+  logo: /assets/JW_logo.svg
+  language: es
+  palette:
+    - scheme: default
+      primary: grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-7  
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: grey 
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+
+nav:
+  - Inicio: index.md
+  - Instalación: instalacion.md
+  - Esquemático:
+      - Introducción: esquematico/index.md
+      - Componentes y Símbolos: esquematico/Compomentes.md
+      - Agregar Componentes: esquematico/AgregarCompomentes.md
+      - Conexiones (Wiring): esquematico/wiring.md
+  - PCB Editor:
+      - Introducción: pcb_editor/index.md
+      - Pads: pcb_editor/pads.md
+      - Pistas (Tracks): pcb_editor/Tracks.md
+      - Agregar footprints: pcb_editor/AgregarFootprints.md
+  - Importar Librerías: importar_librerias.md
+  - Extensiones:
+      - Introducción: extensiones/index.md
+      - Interactive HTML BOM: extensiones/InteractiveHtmlBom.md
+      - PCBway: extensiones/pcbway.md
+  
